@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Variable to store the account balance
+    double balance = 1000.0; // starting with a default balance
+    int choice;
+
+    // Loop to keep the menu running until the user chooses to exit
+    while (true) {
+        // Displaying the menu as shown in the notes
+        cout << "1 check Balance" << endl;
+        cout << "2 Deposit" << endl;
+        cout << "3 withdraw" << endl;
+        cout << "4 exit" << endl;
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        // 1. Check Balance
+        if (choice == 1) {
+            cout << "Current Balance: $" << balance << endl;
+        } 
+        // 2. Deposit
+        else if (choice == 2) {
+            double depositAmount;
+            cout << "Enter amount to deposit: ";
+            cin >> depositAmount;
+            balance += depositAmount;
+            cout << "Deposited successfully." << endl;
+        } 
+        // 3. Withdraw
+        else if (choice == 3) {
+            double withdrawAmount;
+            cout << "Enter amount to withdraw: ";
+            cin >> withdrawAmount;
+            
+            // Simple check to make sure there is enough money
+            if (withdrawAmount <= balance) {
+                balance -= withdrawAmount;
+                cout << "Withdrew successfully." << endl;
+            } else {
+                cout << "Insufficient balance!" << endl;
+            }
+        } 
+        // 4. Exit
+        else if (choice == 4) {
+            cout << "Thank you! Goodbye." << endl;
+            break; // Breaks out of the while loop to end the program
+        } 
+        // Handling invalid inputs
+        else {
+            cout << "Invalid choice. Try again." << endl;
+        }
+
+        cout << endl; // Adds an empty line for clean spacing
+    }
+
+    return 0;
+}
